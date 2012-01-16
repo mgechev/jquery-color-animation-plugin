@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="./src/jquery.js"></script>
+<script type="text/javascript" src="./src/colorAnimation.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#foo').colorAnimation({ color: '#fff000', property: 'color' });
+	$('#foo').colorAnimation({ color: '#000fff', property: 'background-color' });
+});
+</script>
+<style>
+#foo {
+	width: 300px;
+	height: 300px;
+	border: 5px solid black;
+	background-color: #88aaff;
+	color: #ff0000;
+	font-size: 30px;
+}
+</style>
+</head>
+<body>
+<div id="foo"><h1>test</h1></div>
+</body>
+</html>
