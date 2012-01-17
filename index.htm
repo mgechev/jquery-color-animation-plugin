@@ -5,22 +5,29 @@
 <script type="text/javascript" src="./src/colorAnimation.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
-	$('#foo').colorAnimation({ color: '#fff000', property: 'color' });
-	$('#foo').colorAnimation({ color: '#000fff', property: 'background-color' });
+	$('.foo').colorAnimation({ color: '#fff000', property: 'color', duration: 3000 });
+	$('.foo').colorAnimation({ color: '#000fff', property: 'background-color', duration: 3000 });
+	$('.foo').colorAnimation({ color: '#11bbaa', property: 'border-top-color', duration: 3000 });
+	$('.foo').colorAnimation({ color: '#11bbaa', property: 'border-left-color', duration: 3000 });
+	$('.foo').colorAnimation({ color: '#11bbaa', property: 'border-right-color', duration: 3000 });
+	$('.foo').colorAnimation({ color: '#11bbaa', property: 'border-bottom-color', duration: 3000 });
 });
 </script>
 <style>
-#foo {
+.foo {
 	width: 300px;
 	height: 300px;
-	border: 5px solid black;
+	border: 15px solid black;
 	background-color: #88aaff;
 	color: #ff0000;
 	font-size: 30px;
+	float: left;
+	margin-right: 35px;
 }
 </style>
 </head>
 <body>
-<div id="foo"><h1>test</h1></div>
+<div class="foo"><h1>test</h1></div>
+<div class="foo"><h1>foo</h1></div>
 </body>
 </html>

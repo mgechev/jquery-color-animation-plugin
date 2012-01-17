@@ -1,3 +1,18 @@
+/**
+* @name jQuery color animation plugin
+* @version 1.0.1
+* @author Minko Gechev
+* @date 2012-01-17
+*
+* @license GPL
+*
+* @description
+* jQuery color animation plugin.
+*
+* @usage
+* $(selector).colorAnimation({ color: targetColor, property: CSSpropertyForAnimation, duration: animationDuration });
+*/
+
 (function ($) {
     'use strict';
     $.fn.colorAnimation = function (userOptions) {
@@ -6,7 +21,7 @@
             options = {
                 property: 'background-color',
                 color: '#00ff00',
-                interval: 300
+                duration: 300
             },
             sysVars = {
                 rgbColor: {},
@@ -47,7 +62,6 @@
         }
 
         function getColor(color) {
-            var rgb = {};
             if (color.indexOf('#') >= 0) {
                 return getFromHex(color);
             } else {
@@ -71,18 +85,18 @@
         }
 
         function getSteps() {
-            var interval = options.interval,
+            var duration = options.duration,
                 rgb = sysVars.rgbColor,
                 rgbTarget = sysVars.rgbTargetColor;
-            rgb.red.step = 10 * (rgbTarget.red.value - rgb.red.value) / interval;
-            rgb.green.step = 10 * (rgbTarget.green.value - rgb.green.value) / interval;
-            rgb.blue.step = 10 * (rgbTarget.blue.value - rgb.blue.value) / interval;
+            rgb.red.step = 10 * (rgbTarget.red.value - rgb.red.value) / duration;
+            rgb.green.step = 10 * (rgbTarget.green.value - rgb.green.value) / duration;
+            rgb.blue.step = 10 * (rgbTarget.blue.value - rgb.blue.value) / duration;
         }
 
         function startAnimation(element) {
             var rgb = sysVars.rgbColor;
             sysVars.timeout = setTimeout(function () {
-                if (sysVars.currentInterval >= options.interval) {
+                if (sysVars.currentInterval >= options.duration) {
                     clearTimeout(sysVars.timeout);
                     return;
                 }
